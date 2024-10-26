@@ -47,12 +47,11 @@ if (!isset($_SESSION['username'])) {
             } else {
 
                 $id = $_SESSION['id'];
-                $query = mysqli_query($conn, "SELECT * FROM users WHERE id = $id") or die("error occurs");
+                $query = mysqli_query($conn, "SELECT username,email,id FROM users WHERE id = $id") or die("error occurs");
 
                 while ($result = mysqli_fetch_assoc($query)) {
                     $res_username = $result['username'];
                     $res_email = $result['email'];
-                    $res_password = $result['password'];
                     $res_id = $result['id'];
                 }
 
@@ -78,7 +77,7 @@ if (!isset($_SESSION['username'])) {
                         <div class="input-container">
                             <i class="fa fa-lock icon"></i>
                             <input class="input-field password" type="password" placeholder="Password" name="password"
-                                value="<?php echo $res_password; ?>" required>
+                                required>
                             <i class="fa fa-eye toggle icon"></i>
                         </div>
 
