@@ -40,20 +40,15 @@
             $check = "select * from users where email='{$email}'";
 
             $res = mysqli_query($conn, $check);
-
             $passwd = password_hash($pass, PASSWORD_DEFAULT);
-
             $key = bin2hex(random_bytes(12));
-
-
-
 
             if (mysqli_num_rows($res) > 0) {
               echo "<div class='message'>
         <p>This email is used, Try another One Please!</p>
         </div><br>";
 
-              echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button></a>";
+              echo "<center><a href='javascript:self.history.back()'><button class='btn'>Go Back</button></a></center>";
 
 
             } else {
@@ -61,7 +56,6 @@
               if ($pass === $cpass) {
 
                 $sql = "insert into users(username,email,password) values('$name','$email','$passwd')";
-
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
@@ -70,14 +64,14 @@
       <p>You are register successfully!</p>
       </div><br>";
 
-                  echo "<a href='login.php'><button class='btn'>Login Now</button></a>";
+                  echo "<center><a href='login.php'><button class='btn'>Login Now</button></a></center>";
 
                 } else {
                   echo "<div class='message'>
         <p>This email is used, Try another One Please!</p>
         </div><br>";
 
-                  echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button></a>";
+                  echo "<center><a href='javascript:self.history.back()'><button class='btn'>Go Back</button></a></center>";
                 }
 
               } else {
@@ -85,7 +79,7 @@
       <p>Password does not match.</p>
       </div><br>";
 
-                echo "<a href='signup.php'><button class='btn'>Go Back</button></a>";
+                echo "<center><a href='signup.php'><button class='btn'>Go Back</button></a></center>";
               }
             }
           } else {
@@ -110,7 +104,7 @@
 
             <div class="input-container">
               <i class="fa fa-lock icon"></i>
-              <input class="input-field" type="password" placeholder="Confirm Password" name="cpass" required>
+              <input class="input-field password" type="password" placeholder="Confirm Password" name="cpass" required>
               <i class="fa fa-eye icon"></i>
             </div>
 
