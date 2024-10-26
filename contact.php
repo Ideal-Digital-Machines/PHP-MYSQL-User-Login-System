@@ -32,13 +32,13 @@
                     <p>Message sent successfully ✨</p>
                     </div><br>";
 
-                    echo "<a href='index.php'><button class='btn'>Go Back</button></a>";
+                    echo "<center><a href='index.php'><button class='btn'>Go Back</button></a></center>";
                 } else {
                     echo "<div class='message'>
                     <p>Message sending fail 😔</p>
                     </div><br>";
 
-                    echo "<a href='index.php'><button class='btn'>Go Back</button></a>";
+                    echo "<center><a href='index.php'><button class='btn'>Go Back</button></a></center>";
                 }
             }
 
