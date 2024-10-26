@@ -32,15 +32,17 @@ if (!isset($_SESSION['username'])) {
                 $username = $_POST['username'];
                 $email = $_POST['email'];
                 $password = $_POST['password'];
+                $passwd = password_hash($password, PASSWORD_DEFAULT);
+                $key = bin2hex(random_bytes(12));
 
                 $id = $_SESSION['id'];
-                $edit_query = mysqli_query($conn, "UPDATE users SET username='$username', email='$email', password='$password' WHERE id = $id");
+                $edit_query = mysqli_query($conn, "UPDATE users SET username='$username', email='$email', password='$passwd' WHERE id = $id");
 
                 if ($edit_query) {
                     echo "<div class='message'>
                 <p>Profile Updated!</p>
                 </div><br>";
-                    echo "<a href='home.php'><button class='btn'>Go Home</button></a>";
+                    echo "<center><a href='home.php'><button class='btn'>Go Home</button></a></center>";
                 }
             } else {
 
@@ -84,7 +86,9 @@ if (!isset($_SESSION['username'])) {
 
 
                     <div class="field">
+                    <center>
                         <input type="submit" name="update" id="submit" value="Update" class="btn">
+                    </center>
                     </div>
 
 
